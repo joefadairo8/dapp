@@ -20,28 +20,30 @@
     emailjs.init("26CX_SUlKku6cr7Cf"); // <==change to you public key
     })();
 </script>
-	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-	
+</head>
+
 <script>
 /* To connect using MetaMask */
 async function connect() {
  if (window.ethereum) {
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+    window.web3 = new Web3(window.ethereum);
+    const account = web3.eth.accounts;
+    //Get the current MetaMask selected/active wallet
+    const walletAddress = account.givenProvider.selectedAddress;
+    console.log(`Wallet: ${walletAddress}`);
  
-  await window.ethereum.request({ method: "eth_requestAccounts" });
-  window.web3 = new Web3(window.ethereum);
-  
  } else {
   console.log("No wallet");
  }
 }
 </script>
-	
    <!-- Paste Your Tawk.to Code Below -->
 </head>
 
-<body class="body header-fixed is_dark">
-
+<!-- <body class="body header-fixed is_dark"> -->
+<body class="body header-fixed">
 
    
 
@@ -72,7 +74,14 @@ async function connect() {
                         </div>
                     </div>
                 </div>
-                
+                <div class="mode_switcher">
+                    <a href="index.html" class="light d-flex align-items-center is_active">
+                        <img src="assets/images/icon/sun.png" alt="">
+                    </a>
+                    <a href="index.html" class="dark d-flex align-items-center">
+                        <img id="moon_dark" src="assets/images/icon/moon-2.png" alt="">
+                    </a>
+                </div>
             </header>
 
             <section class="tf-section top-seller" id="wallets_list">
